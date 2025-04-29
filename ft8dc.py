@@ -36,7 +36,7 @@ class ft8dc:
         self.rx_df = 0
         self.tx_df = 0
 
-        self.slack_api_token = 'xoxb-76893143908-7760104959205-9bnieL5DWxij8R0CPqeYRzwb'
+        self.slack_api_token = 'sloack token'
         self.channel_id_ham = "C07NBH1SAQ5"
         self.channel_id_logged = "C07P3Q86CRW"
         self.ft8slack = ft8slack(self.slack_api_token)
@@ -486,7 +486,7 @@ class ft8dc:
                         self.nowut = time.time()
                         self.s_nowdt = datetime.fromtimestamp(self.nowut-self.s_nowut, timezone.utc)
                         self.frm.SetTitle("ft8 "+self.s_nowdt.strftime('%H:%M:%S'))
-                        if (self.nowut-self.s_nowut) > (60*60):
+                        if (self.nowut-self.s_nowut) > (1*60):
 #                            wx.MessageBox('One hour has passed', 'メッセージ')
                             self.ft8slack.send_slack_message('One hour has passed',self.channel_id_ham)
                             self.s_nowut = time.time()
